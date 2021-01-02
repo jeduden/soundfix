@@ -1,0 +1,15 @@
+[Unit]
+Description=HP Spectre Sound Fix
+# we run after sound has been completed
+Requires=sound.target
+
+[Service]
+Type=idle
+ExecStart=/opt/spectresoundfixverbs.sh
+
+[Install]
+# need to make sure sound we run when sound is there
+WantedBy=sound.target
+
+#also we need to run again after suspend
+WantedBy=suspend.target
